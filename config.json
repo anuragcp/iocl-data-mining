@@ -3,13 +3,13 @@
         "min_input_size":       288,
         "max_input_size":       448,
         "anchors":              [55,69, 75,234, 133,240, 136,129, 142,363, 203,290, 228,184, 285,359, 341,260],
-        "labels":               ["kangaroo"]
+        "labels":               ["number_plate"]
     },
 
     "train": {
-        "train_image_folder":   "/home/andy/Desktop/github/kangaroo/images/",
-        "train_annot_folder":   "/home/andy/Desktop/github/kangaroo/annots/",
-        "cache_name":           "kangaroo_train.pkl",
+        "train_image_folder":   "../dataset/ALRP/UFPR_ALPR_training_img/",
+        "train_annot_folder":   "../dataset/ALRP/UFPR_ALPR_training_annot/",
+        "cache_name":           "owl_track.pkl",
 
         "train_times":          8,
         "batch_size":           16,
@@ -26,7 +26,7 @@
         "class_scale":          1,
 
         "tensorboard_dir":      "logs",
-        "saved_weights_name":   "kangaroo.h5",
+        "saved_weights_name":   "owl_track.h5",
         "debug":                true
     },
 
