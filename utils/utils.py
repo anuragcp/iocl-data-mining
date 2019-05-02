@@ -22,22 +22,7 @@ def evaluate(model,
              net_h=416,
              net_w=416,
              save_path=None):
-    """ Evaluate a given dataset using a given model.
-    code originally from https://github.com/fizyr/keras-retinanet
-
-    # Arguments
-        model           : The model to evaluate.
-        generator       : The generator that represents the dataset to evaluate.
-        iou_threshold   : The threshold used to consider when a detection is positive or negative.
-        obj_thresh      : The threshold used to distinguish between object and non-object
-        nms_thresh      : The threshold used to determine whether two detections are duplicates
-        net_h           : The height of the input image to the model, higher value results in better accuracy
-        net_w           : The width of the input image to the model
-        save_path       : The path to save images with visualized detections to.
-    # Returns
-        A dict mapping class names to mAP scores.
-    """    
-    # gather all detections and annotations
+    
     all_detections     = [[None for i in range(generator.num_classes())] for j in range(generator.size())]
     all_annotations    = [[None for i in range(generator.num_classes())] for j in range(generator.size())]
 

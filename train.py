@@ -27,6 +27,9 @@ def create_training_instances(
 ):
     # parse annotations of the training set
     train_ints, train_labels = parse_voc_annotation(train_annot_folder, train_image_folder, train_cache, labels)
+    print("Successfylly processed annotations")
+    print("train_ints : {}".format(train_ints))
+    print("train_labels : {}".format(train_labels))
 
     # parse annotations of the validation set, if any, otherwise split the training set
     if os.path.exists(valid_annot_folder):
@@ -168,6 +171,9 @@ def _main_(args):
 
     with open(config_path) as config_buffer:    
         config = json.loads(config_buffer.read())
+
+    print("Config file loaded!")
+    print("labels : {}".format(config['model']['labels']))
 
     ###############################
     #   Parse the annotations 

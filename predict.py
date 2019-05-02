@@ -23,7 +23,7 @@ def _main_(args):
     ###############################
     #   Set some parameter
     ###############################       
-    net_h, net_w = 416, 416 # a multiple of 32, the smaller the faster
+    net_h, net_w = 608, 608 # a multiple of 32, the smaller the faster
     obj_thresh, nms_thresh = 0.5, 0.45
 
     ###############################

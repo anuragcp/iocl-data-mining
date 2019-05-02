@@ -2,19 +2,19 @@
     "model" : {
         "min_input_size":       288,
         "max_input_size":       448,
-        "anchors":              [55,69, 75,234, 133,240, 136,129, 142,363, 203,290, 228,184, 285,359, 341,260],
-        "labels":               ["number_plate"]
+        "anchors":              [13,18, 17,12, 18,25, 19,15, 23,32, 24,19, 28,23, 35,27, 45,36],
+        "labels":               ["four_wheeler-back", "four_wheeler-side", "four_wheeler-front", "four-wheeler-side", "four_wheeler_back", "six_wheeler-back", "two_wheeler", "six_wheeler-side"]
     },
 
     "train": {
-        "train_image_folder":   "../dataset/ALRP/UFPR_ALPR_training_img/",
-        "train_annot_folder":   "../dataset/ALRP/UFPR_ALPR_training_annot/",
-        "cache_name":           "owl_track.pkl",
+        "train_image_folder":   "/home/anurag/datasets/alpr/UFPR_ALPR_training_img/",
+        "train_annot_folder":   "/home/anurag/datasets/alpr/UFPR_ALPR_training_annot/",
+        "cache_name":           "cache_new",
 
         "train_times":          8,
         "batch_size":           16,
         "learning_rate":        1e-4,
-        "nb_epochs":            100,
+        "nb_epochs":            10,
         "warmup_epochs":        3,
         "ignore_thresh":        0.5,
         "gpus":                 "0,1",

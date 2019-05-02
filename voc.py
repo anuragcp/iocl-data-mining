@@ -4,13 +4,15 @@ import xml.etree.ElementTree as ET
 import pickle
 
 def parse_voc_annotation(ann_dir, img_dir, cache_name, labels=[]):
+    all_insts = []
+    seen_labels = {}
     if os.path.exists(cache_name):
         with open(cache_name, 'rb') as handle:
             cache = pickle.load(handle)
         all_insts, seen_labels = cache['all_insts'], cache['seen_labels']
     else:
-        all_insts = []
-        seen_labels = {}
+        #all_insts = []
+        #seen_labels = {}
         
         for ann in sorted(os.listdir(ann_dir)):
             img = {'object':[]}
@@ -19,7 +21,7 @@ def parse_voc_annotation(ann_dir, img_dir, cache_name, labels=[]):
                 tree = ET.parse(ann_dir + ann)
             except Exception as e:
                 print(e)
-                print('Ignore this bad annotation: ' + ann_dir + ann)
+                print('Ignore this bad annotation: ' + ann_dir + ann + 'jpg')
                 continue
             
             for elem in tree.iter():
@@ -63,5 +65,7 @@ def parse_voc_annotation(ann_dir, img_dir, cache_name, labels=[]):
         cache = {'all_insts': all_insts, 'seen_labels': seen_labels}
         with open(cache_name, 'wb') as handle:
             pickle.dump(cache, handle, protocol=pickle.HIGHEST_PROTOCOL)    
-                        
+    
+    print("deliverables inside : seen_labels: {}, labels : {}".format(seen_labels, labels))
+
     return all_insts, seen_labels
